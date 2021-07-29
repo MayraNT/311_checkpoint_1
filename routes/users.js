@@ -1,8 +1,6 @@
 const express = require('express')
+const usersController = require('../controllers/users')
 const router = express.Router()
-
-const usersData = require('../data/index')
-const sampleUser = require('../data/sampleUser')
 
 // Get all users
 router.get('/', (req, res) => {
