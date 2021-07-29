@@ -5,12 +5,12 @@ const usersData = require('../data/index')
 const sampleUser = require('../data/sampleUser')
 
 // Get all users
-router.get('/users', (req, res) => {
+router.get('/', (req, res) => {
   res.json(usersData);
 })
 
 // Get user by id
-router.get('/users/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   const userFound = usersData.some(user => user.id === parseInt(req.params.id));
 
   if (userFound) {
@@ -21,7 +21,7 @@ router.get('/users/:id', (req, res) => {
 })
 
 // Create new user
-router.post('/users', (req, res) => {
+router.post('/', (req, res) => {
   req.body = sampleUser;
   sampleUser.id = usersData.length + 1;
 
@@ -31,7 +31,7 @@ router.post('/users', (req, res) => {
 })
 
 // Update one user
-router.put('/users/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   const userFound = usersData.some(user => user.id === parseInt(req.params.id));
 
   if (userFound) {
@@ -56,7 +56,7 @@ router.put('/users/:id', (req, res) => {
 })
 
 // Delete user by id
-router.delete('/users/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   const userFound = usersData.some(user => user.id === parseInt(req.params.id));
 
   if (userFound) {
